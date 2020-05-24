@@ -19,25 +19,26 @@
             <div class="panel panel-primary">
 
                 <div class="panel-heading">
-                    <h1 class="panel-title" th:text="'Welcome to ING Bank, ' + ${username.toUpperCase()} + '!'"></h1>
+                    <h1 class="panel-title" th:text="${account.accountName}"></h1>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table table-hover ">
-                            <thead class="thead-inverse">
                             <tr>
-                                <th>Please choose a transaction:</th>
+                                <th>You have successfully deposited the following amount:</th>
+                                <td th:text="${amountDeposited}"></td>
+                                <td th:text="${account.currency}"></td>
                             </tr>
-                            </thead>
-                            <tr th:each="transactionType : ${transactionTypes}">
-                                <td>
-                                    <button th:text="${transactionType}"></button>
-                                </td>
+                            <tr>
+                                <th>Your current account balance after deposit is:</th>
+                                <td th:text="${account.balance}"></td>
+                                <td th:text="${account.currency}"></td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
+            <a class="btn btn-default" href="#" th:href="@{'/operationType/'}" role="button">Back to other operations</a>
         </div>
     </div>
 </div>

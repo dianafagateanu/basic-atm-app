@@ -8,5 +8,6 @@ import lombok.Setter;
 public class CardDetailsModel {
 
     private String cardNumber;
+
     private String pinNumber;
 }

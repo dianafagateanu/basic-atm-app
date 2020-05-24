@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>ATM Screen</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form th:object="${depositBanknote}" th:action="@{/operationType/deposit}" method="post">
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading">
+                        <h1 class="panel-title"
+                            th:text="'Deposit operation for your ' + ${account.currency}  + ' account'"></h1>
+                    </div>
+                    <div class="panel-body">
+                        <h1 class="panel-title">Please enter the number of bills you want to deposit for each bill
+                            type:</h1>
+                    </div>
+                    <div class="panel-body" th:each="entry : ${depositBanknote.depositBanknoteMap}">
+                        <div class="row">
+                            <div class="col-md-3 form-group">
+                                <label th:text="${entry.key} + ' ' + ${account.currency}"></label>
+                                <input type="number" class="form-control" th:field="*{depositBanknoteMap['__${entry.key}__']}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
