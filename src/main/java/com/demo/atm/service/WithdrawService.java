@@ -35,7 +35,7 @@ public class WithdrawService {
         atmBoxService.updateAtmBoxes(depositBanknoteModel, account.getCurrency(), TransactionType.WITHDRAW);
     }
 
-    private DepositBanknoteModel splitAmountWithdrawnInBillValues(Long amountWithdrawn, Currency currency) {
+    DepositBanknoteModel splitAmountWithdrawnInBillValues(Long amountWithdrawn, Currency currency) {
         List <Banknote> sortedBanknoteList = banknoteService.findAllByCurrencyOrderByBillValueDesc(currency);
         List <Long> sortedBillValues = sortedBanknoteList.stream()
                 .map(Banknote::getBillValue)
