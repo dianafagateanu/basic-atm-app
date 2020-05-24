@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
-public class InvalidCardDetailsException extends RuntimeException {
+public class InsufficientFundsException extends RuntimeException {
 
-    public InvalidCardDetailsException(String message) {
+    public InsufficientFundsException(String message) {
 
         super(message);
     }

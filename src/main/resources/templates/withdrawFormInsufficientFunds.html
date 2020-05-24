@@ -16,26 +16,24 @@
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form th:object="${cardDetails}" th:action="@{/checkCardDetails}" method="post">
+            <form th:object="${withdrawModel}" th:action="@{/operationType/withdraw}" method="post">
                 <div class="panel panel-primary">
 
                     <div class="panel-heading">
-                        <h1 class="panel-title">Welcome to ING Bank!</h1>
-                        <h1 class="panel-title">Please enter your card details:</h1>
+                        <h1 class="panel-title"
+                            th:text="'Withdraw operation for your ' + ${account.currency}  + ' account'"></h1>
+                    </div>
+                    <div class="alert alert-danger">
+                        <p th:text="${exceptionMessage}"></p>
+                    </div>
+                    <div class="panel-body">
+                        <h1 class="panel-title">Please enter a smaller amount as a multiple of 10: </h1>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3 form-group">
-                                <label>Card number:</label>
-                                <input type="text" class="form-control" th:field="*{cardNumber}"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-3 form-group">
-                                <label>Pin number:</label>
-                                <input type="number" class="form-control" th:field="*{pinNumber}"/>
+                                <label>Amount requested:</label>
+                                <input type="number" class="form-control" th:field="*{amountWithdrawn}"/>
                             </div>
                         </div>
                     </div>

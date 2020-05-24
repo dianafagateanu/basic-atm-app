@@ -50,6 +50,12 @@ public class AccountService {
     void depositAmount(Long amount, Account account) {
         account.setBalance(account.getBalance() + amount);
         accountRepository.save(account);
-        log.info("account with id {} was updated", account.getId());
+        log.info("account with id {} was updated with amount deposited ", account.getId());
+    }
+
+    void withdrawAmount(Long amount, Account account) {
+        account.setBalance(account.getBalance() - amount);
+        accountRepository.save(account);
+        log.info("account with id {} was updated with amount withdrawn ", account.getId());
     }
 }

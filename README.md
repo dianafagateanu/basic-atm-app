@@ -45,3 +45,5 @@ Pin number: 1212
 ATM_CLIENT 2 has:
 Card number: 4432582195877144
 Pin number: 4567
+```
+## Continue with operations displayed

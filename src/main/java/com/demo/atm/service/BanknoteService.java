@@ -20,6 +20,10 @@ public class BanknoteService {
         return banknoteRepository.findAllByCurrency(currency);
     }
 
+    List <Banknote> findAllByCurrencyOrderByBillValueDesc(Currency currency) {
+        return banknoteRepository.findAllByCurrencyOrderByBillValueDesc(currency);
+    }
+
     Banknote findByBillValueAndCurrency(Long billValue, Currency currency) {
         return banknoteRepository.findByBillValueAndCurrency(billValue, currency);
     }

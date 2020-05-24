@@ -8,9 +8,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BanknoteRepository extends JpaRepository<Banknote, Long> {
+public interface BanknoteRepository extends JpaRepository <Banknote, Long> {
 
-    List<Banknote> findAllByCurrency(Currency currency);
+    List <Banknote> findAllByCurrency(Currency currency);
+
+    List <Banknote> findAllByCurrencyOrderByBillValueDesc(Currency currency);
 
     Banknote findByBillValueAndCurrency(Long billValue, Currency currency);
 }
